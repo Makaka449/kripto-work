@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Навигация в виде островов</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Мой сайт</h1>
+    </header>
+    <main>
+      <div class="islands-container">
+        <section class="island1" id="island1">
+          <div class="content">
+            <h2>Остров 1</h2>
+            <p>Это содержимое первого острова.</p>
+            <button onclick="showMore('island1')">Подробнее</button>
+          </div>
+        </section>
+        <section class="island2" id="island2">
+          <div class="content">
+            <h2>Остров 2</h2>
+            <p>Это содержимое второго острова.</p>
+            <button onclick="showMore('island2')">Подробнее</button>
+          </div>
+        </section>
+        <section class="island3" id="island3">
+          <div class="content">
+            <h2>Остров 3</h2>
+            <p>Это содержимое третьего острова.</p>
+            <button onclick="showMore('island3')">Подробнее</button>
+          </div>
+        </section>
+      </div>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
