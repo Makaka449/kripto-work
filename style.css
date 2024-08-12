@@ -1,0 +1,78 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #0b0b0b;
+    /* Чорний фон для всього сайту */
+    color: #d4d4d4;
+    /* Світлий текст для контрасту */
+}
+
+header {
+    background-color: #0d330d;
+    /* Темно-зелений колір для хедера */
+    color: #d4d4d4;
+    /* Світлий текст */
+    padding: 20px;
+    text-align: center;
+}
+
+main {
+    flex: 1;
+    padding: 20px;
+}
+
+#exchange-rate,
+#calculator {
+    margin-bottom: 40px;
+    background-color: #131313;
+    /* Темний фон для секцій */
+    padding: 20px;
+    border-radius: 8px;
+}
+
+button {
+    background-color: #0d330d;
+    /* Темно-зелений для кнопок */
+    color: #d4d4d4;
+    /* Світлий текст */
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #1f501f;
+    /* Трохи яскравіший зелений при наведенні */
+}
+
+input[type="number"] {
+    padding: 10px;
+    border: 1px solid #d4d4d4;
+    border-radius: 5px;
+    background-color: #131313;
+    /* Темний фон для полів вводу */
+    color: #d4d4d4;
+    /* Світлий текст */
+}
+
+footer {
+    background-color: #0d330d;
+    /* Темно-зелений для футера */
+    color: #d4d4d4;
+    /* Світлий текст */
+    padding: 20px;
+    text-align: center;
+}
+
+#map {
+    height: 300px;
+    width: 100%;
+    border: 2px solid #1f501f;
+    /* Темно-зелений бордюр для карти */
+    border-radius: 8px;
+}

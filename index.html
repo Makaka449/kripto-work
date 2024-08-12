@@ -1,104 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>USDT/PLN Price</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        text-align: center;
-        padding: 20px;
-      }
-      .usdt-logo {
-        width: 100px;
-      }
-      .price {
-        font-size: 2em;
-        margin: 20px 0;
-      }
-      #chart-container {
-        width: 80%;
-        margin: auto;
-      }
-    </style>
+    <title>Обмін Валют USDT/PLN</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
   <body>
-    <h1>USDT/PLN Price</h1>
-    <img
-      src="https://cryptologos.cc/logos/tether-usdt-logo.png"
-      alt="USDT Logo"
-      class="usdt-logo"
-    />
-    <div class="price" id="usdt-price">PLN 0.00</div>
-    <div id="chart-container">
-      <canvas id="usdt-chart"></canvas>
-    </div>
+    <header>
+      <h1>Обмін Валют USDT/PLN</h1>
+    </header>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
-    <script>
-      let lastPrice = null;
+    <main>
+      <section id="exchange-rate">
+        <h2>
+          Поточний курс USDT/PLN: <span id="currentRate">Завантаження...</span>
+        </h2>
+        <canvas id="rateChart" width="600" height="400"></canvas>
+      </section>
 
-      // Fetch the real-time USDT/PLN price
-      async function fetchUSDTPrice() {
-        const response = await fetch(
-          "https://api.coingecko.com/api/v3/simple/price?ids=tether&vs_currencies=pln"
-        );
-        const data = await response.json();
-        const price = data.tether.pln.toFixed(2);
-        const priceElement = document.getElementById("usdt-price");
+      <section id="calculator">
+        <h2>Калькулятор обміну</h2>
+        <label for="amount">Сума в USDT:</label>
+        <input type="number" id="amount" placeholder="Введіть суму" />
+        <button onclick="calculateExchange()">Розрахувати</button>
+        <p>Сума в PLN з комісією (10%): <span id="result">0</span></p>
+      </section>
+    </main>
 
-        if (lastPrice !== null) {
-          priceElement.style.color = price > lastPrice ? "green" : "red";
-        }
+    <footer>
+      <h3>Наше розташування</h3>
+      <div id="map">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2504.9970296158676!2d17.03200797776249!3d51.10851497172527!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470fc27681550133%3A0xf794ce2a099ae70a!2zT8WCYXdza2EgOSwgNTAtMTIzIFdyb2PFgmF3LCDQn9C-0LvRjNGI0LA!5e0!3m2!1sru!2sua!4v1723489589969!5m2!1sru!2sua"
+          width="100%"
+          height="300px"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+    </footer>
 
-        priceElement.innerText = `PLN ${price}`;
-        lastPrice = price;
-      }
-
-      fetchUSDTPrice();
-      setInterval(fetchUSDTPrice, 60000); // Update price every minute
-
-      // Fetch historical USDT/PLN price data and render chart
-      async function fetchUSDTHistory() {
-        const response = await fetch(
-          "https://api.coingecko.com/api/v3/coins/tether/market_chart?vs_currency=pln&days=30"
-        );
-        const data = await response.json();
-        const labels = data.prices.map((price) => new Date(price[0]));
-        const prices = data.prices.map((price) => price[1]);
-
-        const ctx = document.getElementById("usdt-chart").getContext("2d");
-
-        new Chart(ctx, {
-          type: "line",
-          data: {
-            labels: labels,
-            datasets: [
-              {
-                label: "USDT/PLN Price",
-                data: prices,
-                borderColor: "rgba(75, 192, 192, 1)",
-                backgroundColor: "rgba(75, 192, 192, 0.2)",
-                borderWidth: 1,
-              },
-            ],
-          },
-          options: {
-            scales: {
-              x: {
-                type: "time",
-                time: {
-                  unit: "day",
-                },
-              },
-            },
-          },
-        });
-      }
-
-      fetchUSDTHistory();
-    </script>
+    <script src="./script.js"></script>
   </body>
 </html>
