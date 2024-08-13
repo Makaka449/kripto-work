@@ -6,16 +6,12 @@ body {
     flex-direction: column;
     min-height: 100vh;
     background-color: #0b0b0b;
-    /* Чорний фон для всього сайту */
     color: #d4d4d4;
-    /* Світлий текст для контрасту */
 }
 
 header {
     background-color: #0d330d;
-    /* Темно-зелений колір для хедера */
     color: #d4d4d4;
-    /* Світлий текст */
     padding: 20px;
     text-align: center;
 }
@@ -25,20 +21,48 @@ main {
     padding: 20px;
 }
 
+#cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.card {
+    background-color: #131313;
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.card h2 {
+    color: #1f501f;
+    margin-top: 0;
+}
+
+.card p {
+    color: #d4d4d4;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
 #exchange-rate,
 #calculator {
     margin-bottom: 40px;
     background-color: #131313;
-    /* Темний фон для секцій */
     padding: 20px;
     border-radius: 8px;
 }
 
 button {
     background-color: #0d330d;
-    /* Темно-зелений для кнопок */
     color: #d4d4d4;
-    /* Світлий текст */
     border: none;
     padding: 10px 20px;
     cursor: pointer;
@@ -47,7 +71,6 @@ button {
 
 button:hover {
     background-color: #1f501f;
-    /* Трохи яскравіший зелений при наведенні */
 }
 
 input[type="number"] {
@@ -55,16 +78,12 @@ input[type="number"] {
     border: 1px solid #d4d4d4;
     border-radius: 5px;
     background-color: #131313;
-    /* Темний фон для полів вводу */
     color: #d4d4d4;
-    /* Світлий текст */
 }
 
 footer {
     background-color: #0d330d;
-    /* Темно-зелений для футера */
     color: #d4d4d4;
-    /* Світлий текст */
     padding: 20px;
     text-align: center;
 }
@@ -73,6 +92,5 @@ footer {
     height: 300px;
     width: 100%;
     border: 2px solid #1f501f;
-    /* Темно-зелений бордюр для карти */
     border-radius: 8px;
 }
