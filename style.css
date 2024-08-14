@@ -21,43 +21,78 @@ main {
     padding: 20px;
 }
 
-#cards {
+#cards,
+#exchange-rates {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     gap: 20px;
 }
 
-.card {
+.card,
+.exchange-rate-card {
     background-color: #131313;
     border-radius: 10px;
     padding: 20px;
     width: 300px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     transition: transform 0.2s ease;
+    display: block;
 }
 
-.card:hover {
+.card:hover,
+.exchange-rate-card:hover {
     transform: translateY(-10px);
 }
 
-.card h2 {
+#exchange-rate,
+#calculator {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    background-color: #131313;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.card h2,
+.exchange-rate-card h2 {
     color: #1f501f;
     margin-top: 0;
 }
 
-.card p {
+.exchange-rate-card h2 {
+    color: hsl(84, 64%, 41%);
+}
+
+.card p,
+.exchange-rate-card p {
     color: #d4d4d4;
     font-size: 14px;
     line-height: 1.6;
 }
 
-#exchange-rate,
-#calculator {
-    margin-bottom: 40px;
-    background-color: #131313;
-    padding: 20px;
-    border-radius: 8px;
+.exchange-rate-card-svg{
+    margin-bottom: 20px;
+    margin-left: 35%;
+}
+
+.exchange-rate-title {
+    color: #ffffff;
+    margin: 0;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+}
+
+.exchange-rate-title span {
+    color: #d4d4d4;
+    margin-left: 10px;
+}
+
+.currency-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
 }
 
 button {
@@ -67,13 +102,15 @@ button {
     padding: 10px 20px;
     cursor: pointer;
     border-radius: 5px;
+    transition: background-color 0.2s ease;
 }
 
 button:hover {
     background-color: #1f501f;
 }
 
-input[type="number"] {
+input[type="number"],
+select {
     padding: 10px;
     border: 1px solid #d4d4d4;
     border-radius: 5px;
@@ -93,4 +130,8 @@ footer {
     width: 100%;
     border: 2px solid #1f501f;
     border-radius: 8px;
+}
+
+#chart-container {
+    margin-top: 40px;
 }
