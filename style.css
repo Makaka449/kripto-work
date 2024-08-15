@@ -171,7 +171,6 @@ h2 {
 }
 
 /* Таблиця курсів валют */
-/* Таблиця курсів валют */
 #exchange-rates-table {
     width: 100%;
     border-collapse: collapse;
@@ -181,11 +180,9 @@ h2 {
 #exchange-rates-table th,
 #exchange-rates-table td {
     padding: 8px;
-    /* Зменшено padding */
     text-align: left;
     border: 1px solid #333;
     font-size: 0.9rem;
-    /* Зменшено розмір шрифта */
 }
 
 #exchange-rates-table th {
@@ -205,37 +202,6 @@ h2 {
     background-color: #333;
 }
 
-/* Калькулятор */
-#calculator {
-    background: #1e1e1e;
-    padding: 20px;
-    border-radius: 10px;
-}
-
-#amount,
-#currency {
-    margin: 10px 0;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #333;
-    background: #121212;
-    color: #e0e0e0;
-}
-
-#calculate-button {
-    background-color: #f1c40f;
-    color: #121212;
-    border: none;
-    padding: 12px 24px;
-    cursor: pointer;
-    border-radius: 8px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-#calculate-button:hover {
-    background-color: #e0b700;
-    transform: scale(1.05);
-}
 
 /* Карти */
 .card-container {
@@ -334,9 +300,7 @@ footer {
     align-items: center;
     justify-content: center;
     gap: 20px;
-    /* Збільшено gap для великих екранів */
     padding: 20px;
-    /* Збільшено padding для великих екранів */
     opacity: 0;
     animation: fadeIn 1s forwards;
     flex-wrap: wrap;
@@ -349,7 +313,6 @@ footer {
 
 .hero-title {
     font-size: 2rem;
-    /* Збільшено розмір шрифта для великих екранів */
     margin: 0;
     font-weight: 700;
     color: #f6f6f6;
@@ -357,7 +320,6 @@ footer {
 
 .hero-description {
     font-size: 1.1rem;
-    /* Збільшено розмір шрифта для великих екранів */
     margin: 10px 0;
     line-height: 1.5;
     color: #f8f1f1;
@@ -368,9 +330,7 @@ footer {
     color: #121212;
     border: none;
     padding: 10px 20px;
-    /* Збільшено padding для великих екранів */
     font-size: 1rem;
-    /* Збільшено розмір шрифта для великих екранів */
     cursor: pointer;
     border-radius: 8px;
     transition: background-color 0.3s ease, transform 0.2s ease;
@@ -394,15 +354,13 @@ footer {
     height: auto;
 }
 
-/* Адаптивність для мобільних пристроїв */
+
 /* Адаптивність для екранів від 320px до 425px */
 @media (min-width: 200px) and (max-width: 425px) {
     .hero {
         flex-direction: column;
         padding: 5px;
-        /* Зменшено padding для економії місця */
         gap: 8px;
-        /* Зменшено gap для меншого відступу між контентом і зображенням */
     }
 
     .hero-content {
@@ -412,29 +370,22 @@ footer {
 
     .hero-title {
         font-size: 1rem;
-        /* Зменшено розмір шрифта для забезпечення відповідності екрану */
         margin: 0 0 5px;
-        /* Зменшено margin для економії простору */
     }
 
     .hero-description {
         font-size: 0.8rem;
-        /* Зменшено розмір шрифта для уникнення переповнення */
         margin: 3px 0;
-        /* Зменшено margin для більш компактного відображення */
     }
 
     .img-container {
         max-width: 100%;
         margin-top: 10px;
-        /* Зберігається відступ зверху, щоб зображення не зливалось з текстом */
-    }
+  }
 
     .hero-button {
-        padding: 6px 12px;
-        /* Зменшено padding для економії місця */
+        padding: 6px 12px;   
         font-size: 0.8rem;
-        /* Зменшено розмір шрифта для кнопки */
     }
 }
 /* Адаптивність для планшетів та великих екранів */

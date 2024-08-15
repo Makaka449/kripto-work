@@ -1,12 +1,10 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Об'єкт з курсами валют
     const rates = {
         usd: { buy: 1.00, sell: 1.01 },   // USDT to USD
         pln: { buy: 3.90, sell: 3.92 },   // USDT to PLN
         eur: { buy: 0.91, sell: 0.92 }    // USDT to EUR
     };
-
-    // Отримання елементів таблиці
+ 
     const rateUsdtUsdBuy = document.getElementById('rate-usdt-usd');
     const rateUsdtUsdSell = document.getElementById('rate-usdt-usd-sale');
     const rateUsdtPlnBuy = document.getElementById('rate-usdt-pln');
@@ -14,7 +12,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const rateUsdtEurBuy = document.getElementById('rate-usdt-eur');
     const rateUsdtEurSell = document.getElementById('rate-usdt-eur-sale');
 
-    // Оновлення значень у таблиці
     if (rateUsdtUsdBuy && rateUsdtUsdSell) {
         rateUsdtUsdBuy.textContent = rates.usd.buy.toFixed(2);
         rateUsdtUsdSell.textContent = rates.usd.sell.toFixed(2);
@@ -32,43 +29,43 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-// Ініціалізація графіка
+
 let chart;
 
-// Открытие модального окна при клике на бургер-меню
+
 document.querySelector('.burger-menu').addEventListener('click', function() {
     document.getElementById('nav-modal').style.display = 'flex';
 });
 
-// Закрытие модального окна при клике на крестик
+
 document.getElementById('close-modal').addEventListener('click', function() {
     document.getElementById('nav-modal').style.display = 'none';
 });
 
-// Закрытие модального окна при клике за его пределами
+
 window.addEventListener('click', function(event) {
     if (event.target == document.getElementById('nav-modal')) {
         document.getElementById('nav-modal').style.display = 'none';
     }
 });
 
-// Закрытие модального окна при клике на элемент навигации
+
 document.querySelectorAll('.nav-list a').forEach(function(navItem) {
     navItem.addEventListener('click', function() {
         document.getElementById('nav-modal').style.display = 'none';
     });
 });
 
-// Закрытие модального окна при выборе языка
+
 document.querySelectorAll('#language-selector-modal button').forEach(function(langButton) {
     langButton.addEventListener('click', function() {
         document.getElementById('nav-modal').style.display = 'none';
     });
 });
 
-// Оновлення таблиці з обмінними курсами
 
-// Мовні переклади
+
+
 const translations = {
     "uk": {
         "title": "Обмін криптовалют",
@@ -120,11 +117,10 @@ const translations = {
     }
 };
 
-// Зміна мови і оновлення відображення
+
 function setLanguage(lang) {
     document.getElementById('title').textContent = translations[lang]['title'];
     
-    // Оновлення таблиці з курсами обміну
     updateExchangeRates();
 
     document.getElementById('calculator-title').textContent = translations[lang]['calculator-title'];
@@ -133,16 +129,14 @@ function setLanguage(lang) {
     document.getElementById('calculate-button').textContent = translations[lang]['calculate-button'];
     document.getElementById('result-text').textContent = translations[lang]['result-text'];
 
-    // Оновлення карток
     for (let i = 1; i <= 3; i++) {
         document.getElementById(`card-title-${i}`).textContent = translations[lang][`card-title-${i}`];
         document.getElementById(`card-content-${i}`).textContent = translations[lang][`card-content-${i}`];
     }
 }
 
-// Ініціалізація при завантаженні сторінки
 document.addEventListener('DOMContentLoaded', () => {
-    setLanguage('uk'); // Встановлення мови за замовчуванням на українську
-    updateChart();     // Ініціалізація графіка
-    fetchExchangeRate(); // Отримання обмінних курсів
+    setLanguage('uk'); 
+   
+    fetchExchangeRate(); 
 });
