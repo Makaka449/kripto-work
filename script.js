@@ -21,6 +21,37 @@ let chartData = {
 // Ініціалізація графіка
 let chart;
 
+// Открытие модального окна при клике на бургер-меню
+document.querySelector('.burger-menu').addEventListener('click', function() {
+    document.getElementById('nav-modal').style.display = 'flex';
+});
+
+// Закрытие модального окна при клике на крестик
+document.getElementById('close-modal').addEventListener('click', function() {
+    document.getElementById('nav-modal').style.display = 'none';
+});
+
+// Закрытие модального окна при клике за его пределами
+window.addEventListener('click', function(event) {
+    if (event.target == document.getElementById('nav-modal')) {
+        document.getElementById('nav-modal').style.display = 'none';
+    }
+});
+
+// Закрытие модального окна при клике на элемент навигации
+document.querySelectorAll('.nav-list a').forEach(function(navItem) {
+    navItem.addEventListener('click', function() {
+        document.getElementById('nav-modal').style.display = 'none';
+    });
+});
+
+// Закрытие модального окна при выборе языка
+document.querySelectorAll('#language-selector-modal button').forEach(function(langButton) {
+    langButton.addEventListener('click', function() {
+        document.getElementById('nav-modal').style.display = 'none';
+    });
+});
+
 // Оновлення таблиці з обмінними курсами
 function updateExchangeRates() {
     document.getElementById('rate-usdt-usd').textContent = rates.usd.toFixed(2);

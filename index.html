@@ -9,13 +9,52 @@
   </head>
   <body>
     <header>
-      <h1 id="title">Обмін Валют USDT/PLN</h1>
-      <nav id="language-selector">
-        <button onclick="setLanguage('uk')">Українська</button>
-        <button onclick="setLanguage('en')">English</button>
-        <button onclick="setLanguage('pl')">Polski</button>
-      </nav>
+      <section class="hero">
+        <div class="hero-content">
+          <h3 class="hero-subtitle">Cryptocurrency</h3>
+          <h1 class="hero-title">Exchange rate USDT</h1>
+          <p class="hero-description">
+            baUdfbizsediuflhZSIKUdhfvciouzhbsdfiufgISU<br />
+            hfkuGHWSdiku;ighffv;kuSGifyugasiurhgfvikuzsgfkh<br />
+            bgSikuhfgbhkasbfiugzsfriugfvSI:URghfiy
+          </p>
+          <button class="hero-button">Learn More</button>
+        </div>
+        <div class="img-container">
+          <img
+            src="img/—Pngtree—blockchain wallet or crypto exchange_6335127.png"
+            alt="Crypto Exchange"
+            width="auto"
+            height="350"
+          />
+        </div>
+        <div class="burger-menu">
+          <span class="burger-line"></span>
+          <span class="burger-line"></span>
+          <span class="burger-line"></span>
+        </div>
+      </section>
     </header>
+
+    <!-- Модальне вікно для меню -->
+    <div id="nav-modal" class="nav-modal">
+      <div class="nav-modal-content">
+        <span id="close-modal" class="close">&times;</span>
+        <nav>
+          <ul class="nav-list">
+            <li><a href="#exchange-rates">Курси валют</a></li>
+            <li><a href="#rate-tiers">Процентні ставки</a></li>
+            <li><a href="#calculator">Калькулятор</a></li>
+            <li><a href="#cards">Інформація</a></li>
+          </ul>
+        </nav>
+        <div id="language-selector-modal">
+          <button onclick="setLanguage('uk')">Українська</button>
+          <button onclick="setLanguage('en')">English</button>
+          <button onclick="setLanguage('pl')">Polski</button>
+        </div>
+      </div>
+    </div>
 
     <main>
       <section id="exchange-rates">
@@ -88,36 +127,81 @@
       </section>
 
       <section id="cards">
-        <!-- Карточки с информацией -->
-        <section id="cards">
+        <div class="card-container">
           <div class="card">
-            <h2 id="card-title-1">Широкий Вибір Криптовалют</h2>
-            <p id="card-content-1">
-              Ми пропонуємо можливість обміну будь-якої криптовалюти, будь то
-              популярні токени чи більш рідкісні цифрові активи. Наш сервіс
-              забезпечує гнучкість та зручність для кожного з вас, надаючи
-              можливість вибору найбільш підходящого варіанта обміну.
-            </p>
+            <div class="card-inner">
+              <div class="card-front">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  x="0px"
+                  y="0px"
+                  width="100"
+                  height="100"
+                  viewBox="0 0 48 48"
+                >
+                  <polygon
+                    fill="#4db6ac"
+                    points="24,44 2,22.5 10,5 38,5 46,22.5"
+                  ></polygon>
+                  <path
+                    fill="#fff"
+                    d="M38,22c0-1.436-4.711-2.635-11-2.929V16h8v-6H13v6h8v3.071C14.711,19.365,10,20.564,10,22	s4.711,2.635,11,2.929V36h6V24.929C33.289,24.635,38,23.436,38,22z M24,24c-6.627,0-12-1.007-12-2.25c0-1.048,3.827-1.926,9-2.176	v3.346c0.96,0.06,1.96,0.08,3,0.08s2.04-0.02,3-0.08v-3.346c5.173,0.25,9,1.128,9,2.176C36,22.993,30.627,24,24,24z"
+                  ></path>
+                </svg>
+                <h2>Широкий Вибір Криптовалют</h2>
+              </div>
+              <div class="card-back">
+                <p>
+                  Ми пропонуємо можливість обміну будь-якої криптовалюти, будь
+                  то популярні токени чи більш рідкісні цифрові активи. Наш
+                  сервіс забезпечує гнучкість та зручність для кожного з вас,
+                  надаючи можливість вибору найбільш підходящого варіанта
+                  обміну.
+                </p>
+              </div>
+            </div>
           </div>
           <div class="card">
-            <h2 id="card-title-2">Прозорі Умови</h2>
-            <p id="card-content-2">
-              У нашому сервісі немає прихованих комісій. Всі витрати чітко
-              зазначені і відомі до проведення угоди. Це дозволяє вам повністю
-              контролювати свої фінанси та уникати несподіваних витрат.
-            </p>
+            <div class="card-inner">
+              <div class="card-front">
+                <img
+                  src="data:image/png;base64,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"
+                />
+                <h2>Прозорі Умови</h2>
+              </div>
+              <div class="card-back">
+                <p>
+                  У нашому сервісі немає прихованих комісій. Всі витрати чітко
+                  зазначені і відомі до проведення угоди. Це дозволяє вам
+                  повністю контролювати свої фінанси та уникати несподіваних
+                  витрат.
+                </p>
+              </div>
+            </div>
           </div>
           <div class="card">
-            <h2 id="card-title-3">Зручність і Підтримка</h2>
-            <p id="card-content-3">
-              Процедура обміну проста і зрозуміла. Ми надаємо детальні
-              інструкції та консультації щодо використання криптовалютних
-              гаманців та бірж, щоб кожен з вас міг легко орієнтуватися в
-              процесі. Наша команда завжди готова допомогти і відповісти на всі
-              ваші запитання.
-            </p>
+            <div class="card-inner">
+              <div class="card-front">
+                <img
+                  width="70"
+                  height="70"
+                  src="https://img.icons8.com/ios/100/request-service.png"
+                  alt="request-service"
+                />
+                <h2>Зручність і Підтримка</h2>
+              </div>
+              <div class="card-back">
+                <p>
+                  Процедура обміну проста і зрозуміла. Ми надаємо детальні
+                  інструкції та консультації щодо використання криптовалютних
+                  гаманців та бірж, щоб кожен з вас міг легко орієнтуватися в
+                  процесі. Наша команда завжди готова допомогти і відповісти на
+                  всі ваші запитання.
+                </p>
+              </div>
+            </div>
           </div>
-        </section>
+        </div>
       </section>
     </main>
 

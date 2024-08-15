@@ -1,166 +1,384 @@
+/* Основні стилі */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
+    color: #e0e0e0;
+    background-color: #121212;
     margin: 0;
     padding: 0;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    background-color: #0b0b0b;
-    color: #d4d4d4;
-}
-
-header {
-    background-color: #0d330d;
-    color: #d4d4d4;
-    padding: 20px;
-    text-align: center;
-}
-
-main {
-    flex: 1;
-    padding: 20px;
-}
-
-#cards {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    gap: 20px;
-}
-
-#exchange-rates-table,
-#rate-tiers-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
-
-#exchange-rates-table th,
-#exchange-rates-table td,
-#rate-tiers-table th,
-#rate-tiers-table td {
-    border: 1px solid #ddd;
-    padding: 10px;
-    text-align: left;
-}
-
-#exchange-rates-table th,
-#rate-tiers-table th {
-    background-color: #1f501f;
-    color: #d4d4d4;
-}
-
-#exchange-rates-table td,
-#rate-tiers-table td {
-    background-color: #131313;
-    color: #d4d4d4;
-}
-
-.card,
-.exchange-rate-card {
-    background-color: #131313;
-    border-radius: 10px;
-    padding: 20px;
-    width: 300px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    transition: transform 0.2s ease;
-    display: block;
-}
-
-.card:hover,
-.exchange-rate-card:hover {
-    transform: translateY(-10px);
-}
-
-#exchange-rate,
-#calculator,
-#rate-tiers {
-    margin-top: 40px;
-    margin-bottom: 40px;
-    background-color: #131313;
-    padding: 20px;
-    border-radius: 8px;
-}
-
-.card h2,
-.exchange-rate-card h2,
-#rate-tiers h2 {
-    color: #1f501f;
-    margin-top: 0;
-}
-
-.exchange-rate-card h2 {
-    color: hsl(84, 64%, 41%);
-}
-
-.card p,
-.exchange-rate-card p {
-    color: #d4d4d4;
-    font-size: 14px;
     line-height: 1.6;
 }
 
-.exchange-rate-card-svg {
-    margin-bottom: 20px;
-    margin-left: 35%;
-}
-
-.exchange-rate-title {
+/* Header */
+header {
+    background: linear-gradient(135deg, #ff8c00, #e7cc00);
+    padding: 20px;
     color: #ffffff;
-    margin: 0;
-    font-size: 18px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #333;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    position: relative;
 }
 
-.exchange-rate-title span {
-    color: #d4d4d4;
-    margin-left: 10px;
+/* Бургер-меню */
+.burger-menu {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
 }
 
-.currency-icon {
-    width: 24px;
-    height: 24px;
-    margin-right: 10px;
+.burger-line {
+    width: 30px;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 5px;
 }
 
-button {
-    background-color: #0d330d;
-    color: #d4d4d4;
+/* Модальне вікно */
+.nav-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    overflow-y: auto;
+}
+
+/* Стилі контенту модального вікна */
+.nav-modal-content {
+    background: #1e1e1e;
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+    position: relative;
+}
+
+.close {
+    font-size: 2rem;
+    cursor: pointer;
+    color: #e0e0e0;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+
+.nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.nav-list li {
+    margin: 10px 0;
+}
+
+.nav-list a {
+    color: #f1c40f;
+    text-decoration: none;
+    font-size: 1.2rem;
+    display: block;
+    transition: color 0.3s ease;
+}
+
+.nav-list a:hover {
+    color: #e0b700;
+}
+
+#language-selector-modal button {
+    background: #f1c40f;
+    color: #121212;
     border: none;
     padding: 10px 20px;
+    margin: 5px;
     cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.2s ease;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-button:hover {
-    background-color: #1f501f;
+#language-selector-modal button:hover {
+    background: #e0b700;
+    transform: scale(1.05);
 }
 
-input[type="number"],
-select {
-    padding: 10px;
-    border: 1px solid #d4d4d4;
-    border-radius: 5px;
-    background-color: #131313;
-    color: #d4d4d4;
-}
-
-footer {
-    background-color: #0d330d;
-    color: #d4d4d4;
+/* Основні секції */
+main {
     padding: 20px;
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+h2 {
+    color: #f1c40f;
+    font-size: 2rem;
+    border-bottom: 2px solid #333;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+th,
+td {
+    padding: 15px;
+    text-align: left;
+    border: 1px solid #333;
+}
+
+th {
+    background-color: #1e1e1e;
+    font-weight: 600;
+}
+
+tr:nth-child(even) {
+    background-color: #1a1a1a;
+}
+
+/* Калькулятор */
+#calculator {
+    background: #1e1e1e;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+#amount,
+#currency {
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #333;
+    background: #121212;
+    color: #e0e0e0;
+}
+
+#calculate-button {
+    background-color: #f1c40f;
+    color: #121212;
+    border: none;
+    padding: 12px 24px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#calculate-button:hover {
+    background-color: #e0b700;
+    transform: scale(1.05);
+}
+
+/* Карти */
+.card-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* Центрує картки у контейнері */
+}
+
+.card {
+    width: 300px;
+    height: 300px;
+    perspective: 1000px;
+    /* Додає перспективу для 3D ефекту */
+    margin: 20px;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+}
+
+.card:hover .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    text-align: center;
+    /* Вирівнює текст по центру */
+}
+
+.card-front {
+    background-color: #1e1e1e;
+    color: #f1c40f;
+    border: none;
+    /* Прибирає бордер */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* Центрує елементи по вертикалі і горизонталі */
     text-align: center;
 }
 
-#map {
-    height: 300px;
-    width: 100%;
-    border: 2px solid #1f501f;
-    border-radius: 8px;
+.card-front svg,
+.card-front img {
+    margin-bottom: 10px;
+    /* Відстань між іконкою і заголовком */
 }
 
-#chart-container {
-    margin-top: 40px;
+.card-front h2 {
+    margin: 0;
+    /* Прибирає відступи навколо заголовка */
+}
+
+.card-back {
+    background-color: #f1c40f;
+    color: #121212;
+    transform: rotateY(180deg);
+    border: none;
+    /* Прибирає бордер */
+}
+
+/* Footer */
+footer {
+    background: #1a1a1a;
+    padding: 20px;
+    text-align: center;
+    border-top: 1px solid #333;
+}
+
+#map iframe {
+    border: 0;
+    border-radius: 10px;
+}
+
+#footer-text {
+    color: #e0e0e0;
+    font-size: 0.9rem;
+}
+
+/* Секція героя */
+.hero {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.hero-content {
+    max-width: 50%;
+    text-align: left;
+    /* Вирівнює текст всередині контейнера по лівому краю */
+}
+
+.hero-title {
+    font-size: 2.5rem;
+    margin: 0;
+    font-weight: 700;
+    color: #f6f6f6;
+}
+
+.hero-description {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    line-height: 1.5;
+    color: #f8f1f1;
+}
+
+.hero-button {
+    background-color: #f1c40f;
+    color: #121212;
+    border: none;
+    padding: 12px 24px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.hero-button:hover {
+    background-color: #e0b700;
+    transform: scale(1.05);
+}
+
+.img-container {
+    max-width: 50%;
+}
+
+.img-container img {
+    border-radius: 10px;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Адаптивність для великих екранів */
+@media (min-width: 768px) {
+    .hero-content {
+        max-width: 50%;
+        font-size: 1.1rem;
+        /* Збільшити розмір шрифту */
+    }
+
+    .hero-title {
+        font-size: 4rem;
+        /* Збільшити розмір заголовка */
+    }
+
+    .hero-description {
+        font-size: 1.4rem;
+        /* Збільшити розмір опису */
+    }
+
+    .img-container {
+        max-width: 40%;
+    }
+}
+
+/* Адаптивність для мобільних пристроїв */
+@media (max-width: 767px) {
+    .hero {
+        flex-direction: column;
+    }
+
+    .hero-content {
+        max-width: 100%;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+        /* Стандартний розмір заголовка для мобільних пристроїв */
+    }
+
+    .hero-description {
+        font-size: 1.2rem;
+        /* Стандартний розмір опису для мобільних пристроїв */
+    }
+
+    .img-container {
+        max-width: 100%;
+    }
 }
