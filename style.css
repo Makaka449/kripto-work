@@ -396,7 +396,7 @@ footer {
 
 /* Адаптивність для мобільних пристроїв */
 /* Адаптивність для екранів від 320px до 425px */
-@media (min-width: 320px) and (max-width: 425px) {
+@media (min-width: 200px) and (max-width: 425px) {
     .hero {
         flex-direction: column;
         padding: 5px;
@@ -411,7 +411,7 @@ footer {
     }
 
     .hero-title {
-        font-size: 1.4rem;
+        font-size: 1rem;
         /* Зменшено розмір шрифта для забезпечення відповідності екрану */
         margin: 0 0 5px;
         /* Зменшено margin для економії простору */
