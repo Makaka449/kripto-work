@@ -8,6 +8,19 @@ body {
     line-height: 1.6;
 }
 
+/* Ефект появи */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /* Header */
 header {
     background: linear-gradient(135deg, #ff8c00, #e7cc00);
@@ -19,6 +32,8 @@ header {
     border-bottom: 1px solid #333;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     position: relative;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
 }
 
 /* Бургер-меню */
@@ -64,6 +79,8 @@ header {
     max-width: 400px;
     width: 100%;
     position: relative;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
 }
 
 .close {
@@ -120,6 +137,8 @@ main {
 
 section {
     margin-bottom: 40px;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
 }
 
 h2 {
@@ -130,6 +149,7 @@ h2 {
     margin-bottom: 20px;
 }
 
+/* Таблиця */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -190,15 +210,15 @@ tr:nth-child(even) {
     gap: 20px;
     flex-wrap: wrap;
     justify-content: center;
-    /* Центрує картки у контейнері */
 }
 
 .card {
     width: 300px;
     height: 300px;
     perspective: 1000px;
-    /* Додає перспективу для 3D ефекту */
     margin: 20px;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
 }
 
 .card-inner {
@@ -226,31 +246,25 @@ tr:nth-child(even) {
     box-sizing: border-box;
     border-radius: 10px;
     text-align: center;
-    /* Вирівнює текст по центру */
 }
 
 .card-front {
     background-color: #1e1e1e;
     color: #f1c40f;
     border: none;
-    /* Прибирає бордер */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    /* Центрує елементи по вертикалі і горизонталі */
-    text-align: center;
 }
 
 .card-front svg,
 .card-front img {
     margin-bottom: 10px;
-    /* Відстань між іконкою і заголовком */
 }
 
 .card-front h2 {
     margin: 0;
-    /* Прибирає відступи навколо заголовка */
 }
 
 .card-back {
@@ -258,7 +272,6 @@ tr:nth-child(even) {
     color: #121212;
     transform: rotateY(180deg);
     border: none;
-    /* Прибирає бордер */
 }
 
 /* Footer */
@@ -267,6 +280,8 @@ footer {
     padding: 20px;
     text-align: center;
     border-top: 1px solid #333;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
 }
 
 #map iframe {
@@ -287,12 +302,13 @@ footer {
     justify-content: center;
     gap: 20px;
     padding: 20px;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
 }
 
 .hero-content {
     max-width: 50%;
     text-align: left;
-    /* Вирівнює текст всередині контейнера по лівому краю */
 }
 
 .hero-title {
@@ -340,17 +356,14 @@ footer {
     .hero-content {
         max-width: 50%;
         font-size: 1.1rem;
-        /* Збільшити розмір шрифту */
     }
 
     .hero-title {
         font-size: 4rem;
-        /* Збільшити розмір заголовка */
     }
 
     .hero-description {
         font-size: 1.4rem;
-        /* Збільшити розмір опису */
     }
 
     .img-container {
@@ -370,12 +383,10 @@ footer {
 
     .hero-title {
         font-size: 2rem;
-        /* Стандартний розмір заголовка для мобільних пристроїв */
     }
 
     .hero-description {
         font-size: 1.2rem;
-        /* Стандартний розмір опису для мобільних пристроїв */
     }
 
     .img-container {
