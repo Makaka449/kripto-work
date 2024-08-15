@@ -50,6 +50,17 @@ function updateChart() {
     });
 }
 
+// Розрахунок процентної ставки
+function getRate(amount) {
+    if (amount < 1000) {
+        return 1.10; // 10% для сум менше 1000$
+    } else if (amount >= 1000 && amount <= 10000) {
+        return 1.05; // 5% для сум від 1000$ до 10000$
+    } else {
+        return 1.01; // 1% для сум більше 10000$
+    }
+}
+
 // Розрахунок обміну
 function calculateExchange() {
     const amount = parseFloat(document.getElementById('amount').value);
@@ -66,8 +77,9 @@ function calculateExchange() {
         return;
     }
 
+    const feeRate = getRate(amount);
     const result = amount * rate;
-    const resultWithFee = result * 1.1; // Додавання комісії 10%
+    const resultWithFee = result * feeRate; // Віднімання комісії
 
     document.getElementById('result').textContent = resultWithFee.toFixed(2);
 }
@@ -81,7 +93,8 @@ const translations = {
         "amount-label": "Сума:",
         "currency-label": "Оберіть валюту:",
         "calculate-button": "Розрахувати",
-        "result-text": "Результат (з комісією 10%):",
+        "result-text": "Результат:",
+        "rate-tiers-title": "Процентні ставки в залежності від суми",
         "card-title-1": "Широкий Вибір Криптовалют",
         "card-content-1": "Ми пропонуємо можливість обміну будь-якої криптовалюти, будь то популярні токени чи більш рідкісні цифрові активи. Наш сервіс забезпечує гнучкість та зручність для кожного з вас, надаючи можливість вибору найбільш підходящого варіанта обміну.",
         "card-title-2": "Прозорі Умови",
@@ -96,7 +109,8 @@ const translations = {
         "amount-label": "Amount:",
         "currency-label": "Select Currency:",
         "calculate-button": "Calculate",
-        "result-text": "Result (with 10% fee):",
+        "result-text": "Result:",
+        "rate-tiers-title": "Interest Rates Based on Amount",
         "card-title-1": "Wide Range of Cryptocurrencies",
         "card-content-1": "We offer the ability to exchange any cryptocurrency, whether it’s popular tokens or rarer digital assets. Our service provides flexibility and convenience for each of you, offering the option to choose the most suitable exchange.",
         "card-title-2": "Transparent Conditions",
@@ -111,7 +125,8 @@ const translations = {
         "amount-label": "Kwota:",
         "currency-label": "Wybierz walutę:",
         "calculate-button": "Oblicz",
-        "result-text": "Wynik (z prowizją 10%):",
+        "result-text": "Wynik:",
+        "rate-tiers-title": "Stopy procentowe w zależności od kwoty",
         "card-title-1": "Szeroki wybór kryptowalut",
         "card-content-1": "Oferujemy możliwość wymiany dowolnej kryptowaluty, czy to popularnych tokenów, czy rzadszych aktywów cyfrowych. Nasza usługa zapewnia elastyczność i wygodę dla każdego z Was, oferując możliwość wyboru najbardziej odpowiedniej wymiany.",
         "card-title-2": "Przejrzyste warunki",

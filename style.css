@@ -28,25 +28,30 @@ main {
     gap: 20px;
 }
 
-#exchange-rates-table {
+#exchange-rates-table,
+#rate-tiers-table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
 }
 
 #exchange-rates-table th,
-#exchange-rates-table td {
+#exchange-rates-table td,
+#rate-tiers-table th,
+#rate-tiers-table td {
     border: 1px solid #ddd;
     padding: 10px;
     text-align: left;
 }
 
-#exchange-rates-table th {
+#exchange-rates-table th,
+#rate-tiers-table th {
     background-color: #1f501f;
     color: #d4d4d4;
 }
 
-#exchange-rates-table td {
+#exchange-rates-table td,
+#rate-tiers-table td {
     background-color: #131313;
     color: #d4d4d4;
 }
@@ -68,7 +73,8 @@ main {
 }
 
 #exchange-rate,
-#calculator {
+#calculator,
+#rate-tiers {
     margin-top: 40px;
     margin-bottom: 40px;
     background-color: #131313;
@@ -77,7 +83,8 @@ main {
 }
 
 .card h2,
-.exchange-rate-card h2 {
+.exchange-rate-card h2,
+#rate-tiers h2 {
     color: #1f501f;
     margin-top: 0;
 }
@@ -93,7 +100,7 @@ main {
     line-height: 1.6;
 }
 
-.exchange-rate-card-svg{
+.exchange-rate-card-svg {
     margin-bottom: 20px;
     margin-left: 35%;
 }
