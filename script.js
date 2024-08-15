@@ -1,22 +1,36 @@
-// Обмінні курси
-let rates = {
-    usd: 1.00,   // USDT to USD
-    pln: 3.90,   // USDT to PLN
-    eur: 0.91    // USDT to EUR
-};
+document.addEventListener('DOMContentLoaded', function() {
+    // Об'єкт з курсами валют
+    const rates = {
+        usd: { buy: 1.00, sell: 1.01 },   // USDT to USD
+        pln: { buy: 3.90, sell: 3.92 },   // USDT to PLN
+        eur: { buy: 0.91, sell: 0.92 }    // USDT to EUR
+    };
 
-// Дані графіка
-let chartData = {
-    labels: [],  // Дати або маркери часу
-    datasets: [{
-        label: 'Курс USDT/PLN',
-        data: [],  // Дані обмінного курсу
-        borderColor: 'rgba(0, 255, 0, 1)',
-        backgroundColor: 'rgba(0, 255, 0, 0.1)',
-        fill: true,
-        tension: 0.1
-    }]
-};
+    // Отримання елементів таблиці
+    const rateUsdtUsdBuy = document.getElementById('rate-usdt-usd');
+    const rateUsdtUsdSell = document.getElementById('rate-usdt-usd-sale');
+    const rateUsdtPlnBuy = document.getElementById('rate-usdt-pln');
+    const rateUsdtPlnSell = document.getElementById('rate-usdt-pln-sale');
+    const rateUsdtEurBuy = document.getElementById('rate-usdt-eur');
+    const rateUsdtEurSell = document.getElementById('rate-usdt-eur-sale');
+
+    // Оновлення значень у таблиці
+    if (rateUsdtUsdBuy && rateUsdtUsdSell) {
+        rateUsdtUsdBuy.textContent = rates.usd.buy.toFixed(2);
+        rateUsdtUsdSell.textContent = rates.usd.sell.toFixed(2);
+    }
+    if (rateUsdtPlnBuy && rateUsdtPlnSell) {
+        rateUsdtPlnBuy.textContent = rates.pln.buy.toFixed(2);
+        rateUsdtPlnSell.textContent = rates.pln.sell.toFixed(2);
+    }
+    if (rateUsdtEurBuy && rateUsdtEurSell) {
+        rateUsdtEurBuy.textContent = rates.eur.buy.toFixed(2);
+        rateUsdtEurSell.textContent = rates.eur.sell.toFixed(2);
+    }
+});
+
+
+
 
 // Ініціалізація графіка
 let chart;
@@ -53,67 +67,6 @@ document.querySelectorAll('#language-selector-modal button').forEach(function(la
 });
 
 // Оновлення таблиці з обмінними курсами
-function updateExchangeRates() {
-    document.getElementById('rate-usdt-usd').textContent = rates.usd.toFixed(2);
-    document.getElementById('rate-usdt-pln').textContent = rates.pln.toFixed(2);
-    document.getElementById('rate-usdt-eur').textContent = rates.eur.toFixed(2);
-}
-
-// Оновлення графіка
-function updateChart() {
-    const ctx = document.getElementById('myChart').getContext('2d');
-
-    if (chart) {
-        chart.destroy(); // Очищення старого графіка
-    }
-
-    chart = new Chart(ctx, {
-        type: 'line',
-        data: chartData,
-        options: {
-            responsive: true,
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    });
-}
-
-// Розрахунок процентної ставки
-function getRate(amount) {
-    if (amount < 1000) {
-        return 1.10; // 10% для сум менше 1000$
-    } else if (amount >= 1000 && amount <= 10000) {
-        return 1.05; // 5% для сум від 1000$ до 10000$
-    } else {
-        return 1.01; // 1% для сум більше 10000$
-    }
-}
-
-// Розрахунок обміну
-function calculateExchange() {
-    const amount = parseFloat(document.getElementById('amount').value);
-    const currency = document.getElementById('currency').value;
-
-    if (isNaN(amount) || amount <= 0) {
-        document.getElementById('result').textContent = 'Введіть дійсну суму';
-        return;
-    }
-
-    const rate = rates[currency];
-    if (!rate) {
-        document.getElementById('result').textContent = 'Курс обміну недоступний';
-        return;
-    }
-
-    const feeRate = getRate(amount);
-    const result = amount * rate;
-    const resultWithFee = result * feeRate; // Віднімання комісії
-
-    document.getElementById('result').textContent = resultWithFee.toFixed(2);
-}
 
 // Мовні переклади
 const translations = {
@@ -193,24 +146,3 @@ document.addEventListener('DOMContentLoaded', () => {
     updateChart();     // Ініціалізація графіка
     fetchExchangeRate(); // Отримання обмінних курсів
 });
-
-// Обробник подій для кнопки розрахунку
-document.getElementById('calculate-button').addEventListener('click', calculateExchange);
-
-// Функція для отримання обмінних курсів (можете замінити на реальний API)
-function fetchExchangeRate() {
-    // Імітація запиту до API для отримання курсів валют
-    setTimeout(() => {
-        // Оновлення даних
-        rates = {
-            usd: (Math.random() * 2).toFixed(2),
-            pln: (Math.random() * 5).toFixed(2),
-            eur: (Math.random() * 2).toFixed(2)
-        };
-
-        console.log('Updated Rates:', rates); // Для перевірки
-
-        updateExchangeRates(); // Оновлення таблиці
-        updateChart();         // Оновлення графіка
-    }, 1000); // Затримка для імітації запиту до API
-}
